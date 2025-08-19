@@ -9,7 +9,7 @@ header {
   align-items: center;
   box-shadow: 0 4px 20px rgba($brand-primary, 0.3);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   
   &::before {
     content: '';
@@ -37,13 +37,59 @@ header {
     }
   }
 
+  // Hamburger menu button
+  .hamburger-menu {
+    display: none; // Hidden on desktop
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    
+    .hamburger-line {
+      width: 100%;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    
+    // Active state (hamburger to X transformation)
+    &.active {
+      .hamburger-line {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+      }
+    }
+    
+    &:hover .hamburger-line {
+      background: $sunny-yellow;
+    }
+  }
+
   nav {
     position: relative;
     z-index: 2;
+    display: flex;
+    gap: 1rem;
     
     a {
       color: white;
-      margin-left: 2rem;
       text-decoration: none;
       font-weight: 600;
       font-family: $font-family-secondary;
@@ -53,6 +99,7 @@ header {
       border-radius: 25px;
       transition: all 0.3s ease;
       position: relative;
+      white-space: nowrap;
       
       &::before {
         content: '';
@@ -77,14 +124,77 @@ header {
     }
   }
   
+  // Mobile responsive design
   @media (max-width: $breakpoint-md) {
     padding: 1rem 1.5rem;
-    flex-direction: column;
-    gap: 1rem;
+    
+    .logo {
+      font-size: 1.5rem;
+    }
+    
+    // Show hamburger on mobile
+    .hamburger-menu {
+      display: flex;
+    }
+    
+    // Mobile dropdown navigation
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 4px 20px rgba($brand-primary, 0.3);
+      z-index: 5;
+      
+      // Menu open state
+      &.menu-open {
+        max-height: 250px;
+      }
+      
+      a {
+        text-align: center;
+        padding: 1rem 1.5rem;
+        margin: 0;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: transparent;
+        border-radius: 0;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: $sunny-yellow;
+        }
+        
+        &::before {
+          display: none; // Remove underline on mobile
+        }
+      }
+    }
+  }
+  
+  // Small mobile devices
+  @media (max-width: 480px) {
+    padding: 1rem;
+    
+    .logo {
+      font-size: 1.3rem;
+    }
     
     nav a {
-      margin: 0 0.5rem;
       font-size: 0.9rem;
+      padding: 0.8rem 1rem;
     }
   }
 }

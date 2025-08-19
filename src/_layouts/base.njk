@@ -22,5 +22,30 @@
     </main>
 
     {% include "../_includes/footer.njk" %}
+    
+    <!-- Simple Hamburger Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('.main-nav');
+            
+            hamburger.addEventListener('click', function() {
+                // Toggle hamburger active state (hamburger to X)
+                hamburger.classList.toggle('active');
+                
+                // Toggle menu open state (dropdown)
+                nav.classList.toggle('menu-open');
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('menu-open');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
