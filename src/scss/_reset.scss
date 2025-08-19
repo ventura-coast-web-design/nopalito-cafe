@@ -1,4 +1,5 @@
-@use "variables";
+@use "variables" as *;
+
 // Reset and base styles
 * {
   margin: 0;
@@ -7,13 +8,13 @@
 }
 
 html {
-  font-size: variables.$font-size-base;
   scroll-behavior: smooth;
 }
 
+
 body {
-  font-family: variables.$font-family;
-  line-height: variables.$line-height-base;
-  color: variables.$text-color;
-  background-color: variables.$background-color;
-} 
+  font-family: 'Montserrat', sans-serif;
+  background-color: $warm-sand;
+  color: $deep-cacao-brown;
+  line-height: 1.6;
+}

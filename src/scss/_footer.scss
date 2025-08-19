@@ -1,1 +1,9 @@
-@use "variables";
+@use "variables" as *;
+
+footer {
+    background: $deep-cacao-brown;
+    color: $warm-sand;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+  }
