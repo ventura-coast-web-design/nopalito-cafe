@@ -11,10 +11,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: $warm-sand;
-  color: $deep-cacao-brown;
+  font-family: $font-family-secondary;
+  background-color: $warm-cream;
+  color: $deep-cacao;
   line-height: 1.6;
 }

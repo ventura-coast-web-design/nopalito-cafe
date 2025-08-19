@@ -1,19 +1,107 @@
 @use "variables" as *;
 @use "sass:color";
+
+// Global Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $deep-cacao;
+  background-color: $warm-cream;
+  margin: 0;
+  padding: 0;
+}
+
 // Typography
 h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-primary;
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: $brand-primary;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 { 
+  font-size: 3.5rem; 
+  font-weight: 700;
+  color: $brand-primary;
+}
+h2 { 
+  font-size: 2.5rem; 
+  color: $brand-primary;
+}
+h3 { 
+  font-size: 2rem; 
+  color: $brand-secondary;
+}
+h4 { 
+  font-size: 1.5rem; 
+  color: $brand-secondary;
+}
+h5 { 
+  font-size: 1.25rem; 
+  color: $brand-secondary;
+}
+h6 { 
+  font-size: 1rem; 
+  color: $brand-secondary;
+}
 
 p {
   margin-bottom: 1rem;
+  font-family: $font-family-secondary;
+  color: $deep-cacao;
+}
+
+// Links
+a {
+  color: $brand-accent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
+// Buttons
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: $font-family-secondary;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  color: white;
+  box-shadow: 0 4px 15px rgba($brand-primary, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($brand-primary, 0.4);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $brand-primary;
+  border: 2px solid $brand-primary;
+  
+  &:hover {
+    background: $brand-primary;
+    color: white;
+    transform: translateY(-2px);
+  }
 }

@@ -1,9 +1,65 @@
 @use "variables" as *;
 
 footer {
-    background: $deep-cacao-brown;
-    color: $warm-sand;
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
+  background: linear-gradient(135deg, $deep-cacao, rgba($deep-cacao, 0.85));
+  color: $warm-cream;
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $brand-primary, $brand-secondary, $brand-accent);
   }
+  
+  &::after {
+    content: '🌵 ☕ 🌮';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  
+  .footer-content {
+    position: relative;
+    z-index: 2;
+    
+    p {
+      margin-bottom: 1rem;
+      font-family: $font-family-secondary;
+    }
+    
+    .footer-links {
+      margin-top: 1.5rem;
+      
+      a {
+        color: $brand-warm;
+        margin: 0 1rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: $sunny-yellow;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 2rem 1rem;
+    
+    .footer-links a {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  }
+}
