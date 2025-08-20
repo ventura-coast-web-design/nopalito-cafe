@@ -298,6 +298,19 @@ h2 {
       color: $brand-accent;
     }
   }
+  
+  .map-container {
+    margin: 2rem 0;
+    text-align: center;
+    
+    iframe {
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      height: auto;
+      min-height: 300px;
+    }
+  }
 }
 
 // Contact Section
