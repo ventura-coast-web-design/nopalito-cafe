@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 header {
-  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  background: linear-gradient(135deg, $strong-yellow, $strong-yellow);
   color: white;
   padding: 1.5rem 3rem;
   display: flex;
@@ -23,17 +23,14 @@ header {
   }
 
   .logo {
-    font-family: $font-family-primary;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    position: relative;
-    z-index: 2;
-    
-    &::after {
-      content: ' ☕';
-      font-size: 1.2rem;
+    img {
+        width: 6rem;
+        height: 6rem;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
   }
 
